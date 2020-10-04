@@ -89,13 +89,7 @@ export default {
               this.$router.push({path: 'myOrder'});
           }
       },
-      init(){
-          var userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : '';
-          if(userId == '0001'){
-              this.userName = 'admin';
-              this.userLogo = 'user.jpg'
-          }
-      },
+      
       goLogin(){
           this.$router.push({
               path: 'login'
@@ -108,7 +102,8 @@ export default {
       }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {}, //生命周期 - 创建之前
@@ -119,7 +114,7 @@ export default {
   destroyed() {}, //生命周期 - 销毁完成
   activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   components: {
-    Footer,
+    Footer
   },
 };
 </script>

@@ -7,10 +7,10 @@
    <h2>小米账号登录</h2>
    <div class="login-form">
           <label for="" class="labelbox">
-            <input class="item-account" type="text" name="user" autocomplete="off" placeholder="邮箱/手机号码/小米ID">
+            <input class="item-account" type="text" name="user" autocomplete="off"  placeholder="邮箱/手机号码/小米ID">
           </label>
           <label for="" class="labelbox">
-            <input class="item-account" type="password" name="password" autocomplete="off" placeholder="密码">
+            <input class="item-account" type="password" name="password" autocomplete="off"  placeholder="密码">
             <div class="eye-wrap">
               <i class="icon iconfont icon-yanjing"></i>
             </div>
@@ -42,7 +42,9 @@ export default {
   //方法集合
   methods: {
     login(){
-        
+        // if(this.user.userName && this.user.password && this.user.userName == 'admin'){
+        //   localStorage.setItem('token',Date.now());
+        // }
     },
     goRegister(){
       this.$router.push({path: 'register'});
