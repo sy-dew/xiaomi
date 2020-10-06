@@ -50,5 +50,6 @@ const router = new VueRouter({
         }
     ],
     linkActiveClass: 'active'
-})
+});
+
 export default router

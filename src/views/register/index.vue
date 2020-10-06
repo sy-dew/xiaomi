@@ -1,23 +1,23 @@
 <!--  -->
 <template>
-  <div class="login">
+  <div class="register">
     <div class="logoImg">
       <i class="iconfont icon-xiaomi"></i>
     </div>
    <h2>小米账号注册</h2>
-   <div class="login-form">
+   <div class="register-form">
           <label for="" class="labelbox">
-            <input class="item-account" type="text" name="user" autocomplete="off" placeholder="邮箱/手机号码">
+            <input class="item-account" type="text"  name="user" autocomplete="off" placeholder="邮箱/手机号码">
           </label>
           <label for="" class="labelbox">
-            <input class="item-account" type="password" name="password" autocomplete="off" placeholder="密码">
+            <input class="item-account" type="password"  name="password" autocomplete="off" placeholder="密码">
             <div class="eye-wrap">
               <i class="icon iconfont icon-yanjing"></i>
             </div>
           </label>
         </div>
-        <div class="btnLogin">
-          <input type="button" class="btn-login" value="注册" @click="login">
+        <div class="btnRegister">
+          <input type="button" class="btn-register" value="注册" @click="register">
         </div>
         <div class="btnBack">
           <input type="button" class="btn-back" value="返回" @click="back">
@@ -26,7 +26,8 @@
 </template>
 
 <script>
-
+//import $ from 'jquery'
+// import { MessageBox } from 'mint-ui'
 export default {
   data() {
     //这里存放数据
@@ -41,8 +42,22 @@ export default {
   watch: {},
   //方法集合
   methods: {
-    login(){
-        
+    register(){
+        /*$.get("http://jx.xuzhixiang.top/ap/api/reg.php",{
+          userName: "adminsy",
+          password: 123456
+        },data =>{
+          
+        if(this.userName == data.userName && this.password == data.password){
+          // 本地localStorage存储用户信息
+          console.log("111");
+          localStorage.getItem('userId', '0001');
+          this.$router.push({path: 'login'});
+        }else{
+          //MessageBox.alert('用户名或者密码错误！', '提示');
+        }
+          
+        })*/
     },
     back(){
       this.$router.push({path: 'mine'});
@@ -66,7 +81,7 @@ export default {
 };
 </script>
 <style  scoped>
-.login{
+.register{
   width: 100%;
   height: 100%;
   padding-top: 1.875rem;
@@ -89,16 +104,16 @@ h2{
   color: #4a4a4a;
   margin: 1.875rem 0;
 }
-.login-form {
+.register-form {
   display: block;
   margin: 0 1.875rem;
 }
-.login-form .labelbox {
+.register-form .labelbox {
   display: flex;
   margin-bottom: 0.05rem;
   border-bottom: 0.0625rem solid #d3d3d3;
 }
-.login-form .labelbox .item-account {
+.register-form .labelbox .item-account {
   display: block;
   width: 100%;
   font-size: 1.25rem;
@@ -108,23 +123,23 @@ h2{
   color: #4a4a4a;
 }
 
-.login-form .labelbox .eye-wrap {
+.register-form .labelbox .eye-wrap {
   display: flex;
   align-items: center;
 }
-.login-form .labelbox .eye-wrap i {
+.register-form .labelbox .eye-wrap i {
   font-size: 1.2rem;
 }
-.btnLogin,.btnBack{
+.btnRegister,.btnBack{
   margin: 1.25rem 1.875rem;
 }
-.btn-login,.btn-back{
+.btn-register,.btn-back{
   width: 100%;
   height: 3.125rem;
   font-size: 1.25rem;
   border: none;
 }
-.btn-login{
+.btn-register{
   background: orangered;
   color: #fff;
 }

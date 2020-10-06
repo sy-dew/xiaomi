@@ -7,10 +7,10 @@
    <h2>小米账号登录</h2>
    <div class="login-form">
           <label for="" class="labelbox">
-            <input class="item-account" type="text" name="user" autocomplete="off"  placeholder="邮箱/手机号码/小米ID">
+            <input class="item-account" type="text" v-model="loginForm.username" name="user" autocomplete="off"  placeholder="邮箱/手机号码/小米ID">
           </label>
           <label for="" class="labelbox">
-            <input class="item-account" type="password" name="password" autocomplete="off"  placeholder="密码">
+            <input class="item-account" type="password" v-model="loginForm.password" name="password" autocomplete="off"  placeholder="密码">
             <div class="eye-wrap">
               <i class="icon iconfont icon-yanjing"></i>
             </div>
@@ -20,13 +20,14 @@
           <input type="button" class="btn-login" value="登录" @click="login">
         </div>
         <div class="btnBack">
-          <input type="button" class="btn-back" value="注册" @click="goRegister">
+          <input type="button" class="btn-back" value="返回" @click="back">
         </div>
   </div>
 </template>
 
 <script>
 
+// import $ from 'jquery'
 export default {
   data() {
     //这里存放数据
@@ -41,13 +42,24 @@ export default {
   watch: {},
   //方法集合
   methods: {
+    ...mapMutations(['changeLogin']),
     login(){
         // if(this.user.userName && this.user.password && this.user.userName == 'admin'){
         //   localStorage.setItem('token',Date.now());
         // }
+        /*$.get("http://jx.xuzhixiang.top/ap/api/login.php",{
+          userName: "admin",
+          password: 123456
+        },data => {
+          //24774   7b4cc47d682cced927bedf0287e1b000
+          console.log(data);
+          this.$router.push({path: 'mine'});
+        })*/
+
+        
     },
-    goRegister(){
-      this.$router.push({path: 'register'});
+    back(){
+      this.$router.push({path: 'mine'});
     }
   },
   
