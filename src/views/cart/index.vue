@@ -3,7 +3,7 @@
   <div class="main">
     <!--头部开始-->
     <div class="header">
-      <i class="iconfont icon-ico_leftarrow"></i>
+      <i class="iconfont icon-ico_leftarrow" @click="back"></i>
       <span class="header-title">购物车</span>
       <i></i>
     </div>
@@ -54,13 +54,13 @@
         <ul>
           <li>
             <div class="guess-box1">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
             </div>
             <div class="guess-box2">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
@@ -68,13 +68,13 @@
           </li>
           <li>
             <div class="guess-box1">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
             </div>
             <div class="guess-box2">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
@@ -82,13 +82,13 @@
           </li>
           <li>
             <div class="guess-box1">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
             </div>
             <div class="guess-box2">
-              <img src="" alt />
+              <img src="../../../public/images/2.jpg" alt />
               <p>小米电视机</p>
               <p>描述描述</p>
               <p>2020元</p>
@@ -121,8 +121,10 @@ export default {
     },
     zhengjia(){
       this.$store.state.count++
+    }, back(){
+      // 返回上一页
+      this.$router.go(-1);
     },
-  
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -195,7 +197,7 @@ export default {
   /* display: inline-block; */
 
   margin-top: 50px;
-  /* background: url("../../../public/images/1.jpg");*/
+  background: url("../../../public/images/1.jpg");
 }
 
 .list-box3 {

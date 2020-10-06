@@ -10,7 +10,7 @@
         <p>
           <i class="iconfont icon-sousuo"></i>
         </p>
-        <input type="text" placeholder="搜索商品名称"/>
+        <input type="text" placeholder="搜索商品名称" />
       </div>
       <div class="nav_right">
         <i class="iconfont icon-wode"></i>
@@ -20,21 +20,48 @@
         <!-- <Nav></Nav> -->
     <main>
       <section>
-        <!-- 头部结束 -->
-        <!-- 总导航 -->
-        <div class="big_nav">
+        
+        <!-- 轮播图 -->
+        <mt-swipe :auto="4000" style="height:188px" class="swipe-magin">
+          <mt-swipe-item style="height:188px">
+            <img src="../../../assets/1.jpg" alt class="swipe_img" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../../../assets/2.jpg" alt class="swipe_img" />
+          </mt-swipe-item>
+        </mt-swipe>
+        <!-- 轮播图结束 -->
+        <!-- 小导航 -->
+        <div class="xiao_nav">
           <ul>
-            <router-link tag="li" to="/home/tuijian">推荐</router-link>
-            <router-link tag="li" to="/home/xiaomishouji">小米</router-link>
-            <router-link tag="li" to="/home/hongmi">红米</router-link>
-             <router-link tag="li" to="/home/hongmi">电视</router-link>
-              <router-link tag="li" to="/home/hongmi">电脑</router-link>
-              <router-link tag="li" to="/home/hongmi">全面屏</router-link>
-              <router-link tag="li" to="/home/hongmi">生活周边</router-link>
+            <li v-for="(item,index) in list" :key="index">
+              <a href>
+                <img :src="item.imgurl" />
+              </a>
+            </li>
           </ul>
         </div>
-        <router-view></router-view>
-         
+        <!-- 小导航结束 -->
+        <!-- 每日精选和超值推荐 -->
+        <ul class="tuijian_ul">
+          <li v-for="(item2,index) in tuijianList" :key="index">
+            <img :src="item2.imgurl" />
+          </li>
+        </ul>
+        <!-- 每日精选和超值推荐结束 -->
+        <!-- 下面的列表 -->
+        <ul class="list_ul">
+          <li v-for="(item3,index) in list_ulList" :key="index">
+            <div class="one1">
+              <img :src="item3.imgurl" alt />
+            </div>
+            <div class="two2">
+              <div class="title">{{item3.title}}</div>
+              <div class="brief">{{item3.brief}}</div>
+              <div class="price">{{item3.price}}</div>
+            </div>
+          </li>
+        </ul>
       </section>
     </main>
     <Footer></Footer>
@@ -42,58 +69,67 @@
 </template>
 
 <script>
-import Footer from "../../components/Footer";
+import Footer from "../../../components/Footer";
 // import Nav from "../../components/Zongnav";
 export default {
   data() {
     //这里存放数据
     return {
       list: [
-        { imgurl: require("../../assets/小米闪购.jpg") },
-        { imgurl: require("../../assets/手机卡.jpg") },
-        { imgurl: require("../../assets/新品发布.jpg") },
-        { imgurl: require("../../assets/活动频道.jpg") },
+        { imgurl: require("../../../assets/小米闪购.jpg") },
+        { imgurl: require("../../../assets/手机卡.jpg") },
+        { imgurl: require("../../../assets/新品发布.jpg") },
+        { imgurl: require("../../../assets/活动频道.jpg") },
 
-        { imgurl: require("../../assets/以旧换新.jpg") },
+        { imgurl: require("../../../assets/以旧换新.jpg") },
       ],
-      
+      // big_navList:[
+      //   {title:"小米手机"},
+      //   {title:"Redmin红米手机"},
+      //   {title:"电视"},
+      //   {title:"笔记本"},
+      //   {title:"家电"},
+      //   {title:"路由器"},
+      //   {title:"只能硬件"},
+      //   {title:"服务"},
+      // ],
       tuijianList: [
-        { imgurl: require("../../assets/meirijingxuan.jpg") },
-        { imgurl: require("../../assets/chaozhituijian.jpg") },
+        { imgurl: require("../../../assets/meirijingxuan.jpg") },
+        { imgurl: require("../../../assets/chaozhituijian.jpg") },
       ],
       list_ulList: [
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
         },
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
         },
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
         },
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
         },
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
         },
         {
-          imgurl: require("../../assets/hongmi5.jpg"),
+          imgurl: require("../../../assets/hongmi5.jpg"),
           title: "九号平衡车",
           brief: "年轻人的酷玩具",
           price: "￥1999",
@@ -137,7 +173,7 @@ section {
   top: 0;
   z-index: 999;
   height: 60px;
-  background: rgb(221, 219, 219);
+  background: #ccc;
   display: flex;
   align-items: center;
   .nav_left {
@@ -191,30 +227,30 @@ section {
   }
 }
 //总导航
-.big_nav {
-  width:100%; 
-  margin-top:60px;
-  height: 60px;
+// .big_nav {
+//   width:100%; 
+//   margin-top:60px;
+//   height: 60px;
   
-  ul {
-    width:100%; 
-    display: flex;
-    height: 60px;
-    white-space: nowrap;
-     overflow-x:scroll;
-    li{
+//   ul {
+//     width:100%; 
+//     display: flex;
+//     height: 60px;
+//     white-space: nowrap;
+//      overflow-x:scroll;
+//     li{
   
-  height: 60px;
+//   height: 60px;
  
-  line-height: 60px;
-  text-align: center;
-  margin:0 10px;
-  line-height:68px;
-  text-align: center;
-  font-size:18px;
-    }
-  }
-}
+//   line-height: 60px;
+//   text-align: center;
+//   margin:0 10px;
+//   line-height:68px;
+//   text-align: center;
+//   font-size:16px;
+//     }
+//   }
+// }
  
 .swipe_img {
   width: 375px;

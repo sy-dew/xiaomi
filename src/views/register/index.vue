@@ -1,23 +1,23 @@
 <!--  -->
 <template>
-  <div class="register">
+  <div class="login">
     <div class="logoImg">
       <i class="iconfont icon-xiaomi"></i>
     </div>
    <h2>小米账号注册</h2>
-   <div class="register-form">
+   <div class="login-form">
           <label for="" class="labelbox">
-            <input class="item-account" type="text"  name="user" autocomplete="off" placeholder="邮箱/手机号码">
+            <input class="item-account" type="text" name="user" autocomplete="off" placeholder="邮箱/手机号码" v-model="myName" maxlength="11">
           </label>
           <label for="" class="labelbox">
-            <input class="item-account" type="password"  name="password" autocomplete="off" placeholder="密码">
+            <input class="item-account" type="password" name="password" autocomplete="off" placeholder="密码" v-model="myPassWord">
             <div class="eye-wrap">
               <i class="icon iconfont icon-yanjing"></i>
             </div>
           </label>
         </div>
-        <div class="btnRegister">
-          <input type="button" class="btn-register" value="注册" @click="register">
+        <div class="btnLogin">
+          <input type="button" class="btn-login" value="注册" @click="login">
         </div>
         <div class="btnBack">
           <input type="button" class="btn-back" value="返回" @click="back">
@@ -26,14 +26,13 @@
 </template>
 
 <script>
-//import $ from 'jquery'
-// import { MessageBox } from 'mint-ui'
+import axios from 'axios'
 export default {
   data() {
     //这里存放数据
     return {
-      userName: '',
-      password: ''
+      myName: '',
+      myPassWord: ''
     };
   },
   //监听属性 类似于data概念
@@ -42,25 +41,40 @@ export default {
   watch: {},
   //方法集合
   methods: {
-    register(){
-        /*$.get("http://jx.xuzhixiang.top/ap/api/reg.php",{
-          userName: "adminsy",
-          password: 123456
-        },data =>{
-          
-        if(this.userName == data.userName && this.password == data.password){
-          // 本地localStorage存储用户信息
-          console.log("111");
-          localStorage.getItem('userId', '0001');
-          this.$router.push({path: 'login'});
+    login(){
+        // alert(111);
+        // alert(this.myName);
+        // alert(this.myPassWord);
+        var reg1=/^1[34578]\d{9}$/;//电话号码
+        if(reg1.test(this.myName)==true){
+          // alert("手机号输入正确");
+          var reg2=/^[A-Za-z0-9]+$/;//由数字和26个英文字母组成的字符串
+           if(reg2.test(this.myPassWord)==true){
+            //  alert("密码输入正确");
+             //进行调用注册的接口
+             axios.get("http://jx.xuzhixiang.top/ap/api/reg.php",{
+               username:this.myName,
+               password:this.myPassWord
+             }).then( res=>{
+               alert("注册成功")
+              console.log(res.data);
+              location.href="../login"
+             }
+               ).then(
+                //  alert("请登录"),
+                 location.href="../login"
+                 )
+           }else{
+             alert("密码输入错误");
+           }
         }else{
-          //MessageBox.alert('用户名或者密码错误！', '提示');
+          alert("请输入正确的用户名")
         }
-          
-        })*/
+
     },
     back(){
-      this.$router.push({path: 'mine'});
+      // this.$router.push({path: 'mine'});
+      location.href="../login"
     }
   },
   
@@ -81,7 +95,7 @@ export default {
 };
 </script>
 <style  scoped>
-.register{
+.login{
   width: 100%;
   height: 100%;
   padding-top: 1.875rem;
@@ -104,16 +118,16 @@ h2{
   color: #4a4a4a;
   margin: 1.875rem 0;
 }
-.register-form {
+.login-form {
   display: block;
   margin: 0 1.875rem;
 }
-.register-form .labelbox {
+.login-form .labelbox {
   display: flex;
   margin-bottom: 0.05rem;
   border-bottom: 0.0625rem solid #d3d3d3;
 }
-.register-form .labelbox .item-account {
+.login-form .labelbox .item-account {
   display: block;
   width: 100%;
   font-size: 1.25rem;
@@ -123,23 +137,23 @@ h2{
   color: #4a4a4a;
 }
 
-.register-form .labelbox .eye-wrap {
+.login-form .labelbox .eye-wrap {
   display: flex;
   align-items: center;
 }
-.register-form .labelbox .eye-wrap i {
+.login-form .labelbox .eye-wrap i {
   font-size: 1.2rem;
 }
-.btnRegister,.btnBack{
+.btnLogin,.btnBack{
   margin: 1.25rem 1.875rem;
 }
-.btn-register,.btn-back{
+.btn-login,.btn-back{
   width: 100%;
   height: 3.125rem;
   font-size: 1.25rem;
   border: none;
 }
-.btn-register{
+.btn-login{
   background: orangered;
   color: #fff;
 }
