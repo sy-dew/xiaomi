@@ -14,6 +14,7 @@ const router = new VueRouter({
             redirect: "/home/tuijian",
             component: () =>
                 import ("../views/home/index.vue"),
+
             children: [{
                     path: "tuijian",
                     name: "Tuijian",
@@ -91,12 +92,13 @@ const router = new VueRouter({
         {
             path: '/myOrder',
             component: () =>
-                import ("../views/myOrder/index.vue")
+                import ("../views/myOrder/index.vue"),
+
         },
         {
             path: '/about',
             component: () =>
-                import ("../views/about/index.vue")
+                import ("../views/about/index.vue"),
         },
         {
             path: '/datails',

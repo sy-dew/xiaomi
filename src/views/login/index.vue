@@ -93,8 +93,8 @@ export default {
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
     if(getToken()){
-      this.showFlag = false,
-       this.$router.push({path: 'mine'});
+      this.showFlag = false
+      //  this.$router.push({path: 'mine'});
     }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
