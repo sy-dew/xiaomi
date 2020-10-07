@@ -89,13 +89,6 @@ export default {
               this.$router.push({path: 'myOrder'});
           }
       },
-      init(){
-          var userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : '';
-          if(userId == '0001'){
-              this.userName = 'admin';
-              this.userLogo = 'user.jpg'
-          }
-      },
       goLogin(){
           this.$router.push({
               path: 'login'

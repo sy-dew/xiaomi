@@ -97,6 +97,29 @@ const router = new VueRouter({
             path: '/about',
             component: () =>
                 import ("../views/about/index.vue")
+        },
+        {
+            path: '/datails',
+            component: () =>
+                import ('../views/datails/index.vue'),
+            redirect: "/datails/gaishu",
+            children: [{
+                    path: 'gaishu',
+                    component: () =>
+                        import ('../views/datails/gaishu/index.vue')
+                },
+                {
+                    path: 'canshu',
+                    component: () =>
+                        import ('../views/datails/canshu/index.vue')
+                },
+                {
+                    path: 'yiwaixian',
+                    component: () =>
+                        import ('../views/datails/yiwaixian/index.vue')
+                }
+            ],
+
         }
     ],
     linkActiveClass: 'active'

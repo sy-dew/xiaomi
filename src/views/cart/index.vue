@@ -145,7 +145,7 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  height: 40px;
+  height: 50px;
   position: fixed;
   top: 0;
   z-index: 999;

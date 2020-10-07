@@ -10,14 +10,14 @@
         <p>
           <i class="iconfont icon-sousuo"></i>
         </p>
-        <input type="text" placeholder="搜索商品名称"/>
+        <input type="text" placeholder="搜索商品名称" />
       </div>
       <div class="nav_right">
         <i class="iconfont icon-wode"></i>
       </div>
     </header>
     <!-- 总导航 -->
-        <!-- <Nav></Nav> -->
+    <!-- <Nav></Nav> -->
     <main>
       <section>
         <!-- 头部结束 -->
@@ -27,14 +27,13 @@
             <router-link tag="li" to="/home/tuijian">推荐</router-link>
             <router-link tag="li" to="/home/xiaomishouji">小米</router-link>
             <router-link tag="li" to="/home/hongmi">红米</router-link>
-             <router-link tag="li" to="/home/hongmi">电视</router-link>
-              <router-link tag="li" to="/home/hongmi">电脑</router-link>
-              <router-link tag="li" to="/home/hongmi">全面屏</router-link>
-              <router-link tag="li" to="/home/hongmi">生活周边</router-link>
+            <router-link tag="li" to="/home/hongmi">电视</router-link>
+            <router-link tag="li" to="/home/hongmi">电脑</router-link>
+            <router-link tag="li" to="/home/hongmi">全面屏</router-link>
+            <router-link tag="li" to="/home/hongmi">生活周边</router-link>
           </ul>
         </div>
         <router-view></router-view>
-         
       </section>
     </main>
     <Footer></Footer>
@@ -56,7 +55,7 @@ export default {
 
         { imgurl: require("../../assets/以旧换新.jpg") },
       ],
-      
+
       tuijianList: [
         { imgurl: require("../../assets/meirijingxuan.jpg") },
         { imgurl: require("../../assets/chaozhituijian.jpg") },
@@ -131,7 +130,6 @@ section {
   overflow: auto;
 }
 // 头部样式
-
 .nav-header {
   position: fixed;
   top: 0;
@@ -143,7 +141,6 @@ section {
   .nav_left {
     width: 52px;
     height: 60px;
-
     text-align: center;
     line-height: 60px;
     .icon-xiaomi {
@@ -155,7 +152,6 @@ section {
     width: 257px;
     height: 33px;
     background: #fff;
-
     margin: 0 10px;
     display: flex;
     align-items: center;
@@ -168,9 +164,7 @@ section {
     }
     p {
       width: 31px;
-
       text-align: center;
-
       .icon-sousuo {
         font-size: 25px;
         color: #999;
@@ -192,30 +186,28 @@ section {
 }
 //总导航
 .big_nav {
-  width:100%; 
-  margin-top:60px;
+  width: 100%;
+  margin-top: 60px;
   height: 60px;
-  
+
   ul {
-    width:100%; 
+    width: 100%;
     display: flex;
     height: 60px;
     white-space: nowrap;
-     overflow-x:scroll;
-    li{
-  
-  height: 60px;
- 
-  line-height: 60px;
-  text-align: center;
-  margin:0 10px;
-  line-height:68px;
-  text-align: center;
-  font-size:18px;
+    overflow-x: scroll;
+    li {
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      margin: 0 10px;
+      line-height: 68px;
+      text-align: center;
+      font-size: 18px;
     }
   }
 }
- 
+
 .swipe_img {
   width: 375px;
   height: 188px;
@@ -259,7 +251,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
   li {
     margin-top: 5px;
     .one1 {
